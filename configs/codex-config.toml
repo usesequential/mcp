@@ -1,0 +1,4 @@
+# Add to ~/.codex/config.toml. Codex reads the token from the SEQUENTIAL_TOKEN environment variable.
+[mcp_servers.sequential]
+url = "https://api.usesequential.com/mcp"
+bearer_token_env_var = "SEQUENTIAL_TOKEN"

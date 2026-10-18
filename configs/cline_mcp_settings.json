@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "sequential": {
+      "type": "streamableHttp",
+      "url": "https://api.usesequential.com/mcp",
+      "headers": {
+        "Authorization": "Bearer <token>"
+      },
+      "disabled": false,
+      "autoApprove": []
+    }
+  }
+}

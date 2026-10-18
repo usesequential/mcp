@@ -1,0 +1,26 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.usesequential/sequential",
+  "title": "Sequential",
+  "description": "Session replay and product analytics. Read findings, sessions, verdicts and funnels.",
+  "version": "1.0.0",
+  "websiteUrl": "https://www.usesequential.com/features/connect-your-agent",
+  "repository": {
+    "url": "https://github.com/usesequential/mcp",
+    "source": "github"
+  },
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://api.usesequential.com/mcp",
+      "headers": [
+        {
+          "name": "Authorization",
+          "description": "Bearer <project access token>. Create the token in Sequential under Agents.",
+          "isRequired": true,
+          "isSecret": true
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "sequential": {
+      "httpUrl": "https://api.usesequential.com/mcp",
+      "headers": {
+        "Authorization": "Bearer <token>"
+      }
+    }
+  }
+}
