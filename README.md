@@ -90,6 +90,7 @@ Ask your agent: "Using Sequential, give me an overview of the last 7 days." The 
 - The scopes of the token, or of the claude.ai connection, decide what the agent can read and do.
 - Text that the tools return from your users' sessions is data, not instructions.
 - Sequential logs each successful call for the project: the tool, the connection and the time.
+- [Privacy Policy](https://www.usesequential.com/privacy) · [Terms of Service](https://www.usesequential.com/terms)
 
 ## Registry
 
