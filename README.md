@@ -67,7 +67,7 @@ Add [`configs/cline_mcp_settings.json`](configs/cline_mcp_settings.json) to Clin
 
 ### Gemini CLI
 
-Add [`configs/gemini-cli-settings.json`](configs/gemini-cli-settings.json) to `~/.gemini/settings.json`.
+Add [`configs/gemini-cli-settings.json`](configs/gemini-cli-settings.json) to `~/.gemini/settings.json`. Gemini CLI reads the token from the environment variable `SEQUENTIAL_TOKEN` (`${SEQUENTIAL_TOKEN}`).
 
 ### Other MCP clients
 

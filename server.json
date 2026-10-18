@@ -7,7 +7,8 @@
   "websiteUrl": "https://www.usesequential.com/features/connect-your-agent",
   "repository": {
     "url": "https://github.com/usesequential/mcp",
-    "source": "github"
+    "source": "github",
+    "id": "1424696923"
   },
   "remotes": [
     {
