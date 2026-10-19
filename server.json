@@ -1,10 +1,19 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "io.github.usesequential/sequential",
-  "title": "Sequential",
+  "title": "Sequential session replay",
   "description": "Session replay and product analytics. Read findings, sessions, verdicts and funnels.",
   "version": "1.0.0",
   "websiteUrl": "https://www.usesequential.com/features/connect-your-agent",
+  "icons": [
+    {
+      "src": "https://www.usesequential.com/icon-512.png",
+      "mimeType": "image/png",
+      "sizes": [
+        "512x512"
+      ]
+    }
+  ],
   "repository": {
     "url": "https://github.com/usesequential/mcp",
     "source": "github",
