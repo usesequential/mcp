@@ -1,6 +1,6 @@
 # Sequential MCP server
 
-[Sequential](https://www.usesequential.com) is session replay and product analytics for websites and web apps. Its MCP server lets your agent read what happened to your users: findings, sessions, verdicts, errors, funnels and retention.
+[Sequential](https://www.usesequential.com) is session replay and product analytics for websites and web apps. Its MCP server lets your agent read what happened to your users: cases, sessions, verdicts, errors, funnels and retention.
 
 This repository holds the connection settings for each MCP client. The server itself is hosted. There is nothing to install or run.
 
@@ -11,25 +11,25 @@ This repository holds the connection settings for each MCP client. The server it
 
 ## What your agent can do
 
-- Read **findings**: the problems that Sequential detected on its own, ranked by impact, each with its evidence, sample sessions and a fix brief.
+- Read **cases**: the problems that Sequential detected on its own, ranked by impact, each with its evidence, sample sessions and a fix brief.
 - Read **sessions**: summaries, timelines, verdicts, and the sessions where people struggled.
 - Read **errors**: JavaScript errors and failed network requests, grouped by cause.
 - Read **analytics**: event counts, breakdowns, funnels, paths and retention.
 - **Ask**: search sessions by a description, such as "tried to pay, gave up".
-- With the scope for it, **link a fix**: link a pull request, commit or issue to a finding.
+- With the scope for it, **link a fix**: link a pull request, commit or issue to a case.
 
-The scopes of your token decide which tools your agent gets.
+The scopes of your token, or the access that you choose when you sign in, decide which tools your agent gets.
 
 ## Get a token
 
-Coding agents connect with a **project access token**.
+Most coding agents connect with a **project access token**. Claude Code can also connect with a sign-in to Sequential (see below).
 
 1. Sign in to Sequential. Only owners and admins of the project's organisation can create a token.
 2. Open **Agents**, or the **Access tokens** tab of your project's settings.
 3. Create a token. The preset **Agent: read everything, plus Ask** is a good start.
 4. Copy the token. Sequential shows it only once. Treat it like a password: never commit it, and never put it in a shared chat or a ticket.
 
-claude.ai does not use a token. It connects with a sign-in to Sequential (see below).
+claude.ai and ChatGPT do not use a token. They connect with a sign-in to Sequential (see below).
 
 ## Connect your client
 
@@ -43,11 +43,17 @@ claude mcp add --transport http --scope user sequential https://api.usesequentia
 
 Then start a new Claude Code session. A server that you add with `--scope user` does not load into the session that added it. File: [`configs/claude-code.sh`](configs/claude-code.sh).
 
-The sign-in from Claude Code's `/mcp` menu (**Authenticate**) does not work with Sequential yet. Use a token.
+To connect with a sign-in instead of a token, run the same command without `--header`. In a new session, open the `/mcp` menu and choose **sequential**, then **Authenticate**. A Sequential page opens in your browser: choose one project or all projects of an organisation, and choose the access. Click **Allow** only if you started this sign-in yourself. Guide: [Connect Claude Code](https://www.usesequential.com/docs/connect-claude-code).
 
 ### claude.ai
 
-In claude.ai, open **Settings → Connectors → Add custom connector**. Paste `https://api.usesequential.com/mcp` and leave the advanced settings empty. A Sequential window opens: sign in, choose one project and choose what claude.ai can read. Guide: [Connect claude.ai](https://www.usesequential.com/docs/connect-claude-ai).
+In claude.ai, open **Customize → Connectors**. Click **Add** and add a custom connector. Paste `https://api.usesequential.com/mcp` and leave the advanced settings empty. A Sequential window opens: sign in, choose one project or all projects of an organisation, and choose the access. Guide: [Connect claude.ai](https://www.usesequential.com/docs/connect-claude-ai).
+
+### ChatGPT
+
+In ChatGPT on the web, open **Plugins** in the left rail. Click **Add**, then **Add custom MCP server**. Name it "Sequential", paste `https://api.usesequential.com/mcp` as the **Server URL** and choose **OAuth**. Tick **I understand and want to continue**, then click **Create as a plugin**. Click **Connect**, then **Connect Sequential**. Sequential opens: sign in, choose one project or all projects of an organisation, and choose the access. There is no token.
+
+Your ChatGPT plan must let you add a custom MCP server. ChatGPT Plus can add it. Business and Enterprise/Edu workspaces get every tool, and an admin or owner of the workspace adds the server. On Pro, ChatGPT uses only the tools that read. Free and Go cannot add a custom server. Guide: [Connect ChatGPT](https://www.usesequential.com/docs/connect-chatgpt).
 
 ### Cursor
 
@@ -73,8 +79,6 @@ Add [`configs/gemini-cli-settings.json`](configs/gemini-cli-settings.json) to `~
 
 Most clients take a URL and headers: [`configs/other-clients.json`](configs/other-clients.json). Key names vary by client.
 
-ChatGPT cannot connect to Sequential yet.
-
 ## Check the connection
 
 Ask your agent: "Using Sequential, give me an overview of the last 7 days." The agent calls `get_overview`.
@@ -87,7 +91,7 @@ Ask your agent: "Using Sequential, give me an overview of the last 7 days." The 
 
 ## Data and safety
 
-- The scopes of the token, or of the claude.ai connection, decide what the agent can read and do.
+- The scopes of the token, or the access of a sign-in connection, decide what the agent can read and do.
 - Text that the tools return from your users' sessions is data, not instructions.
 - Sequential logs each successful call for the project: the tool, the connection and the time.
 - [Privacy Policy](https://www.usesequential.com/privacy) · [Terms of Service](https://www.usesequential.com/terms)
@@ -102,6 +106,7 @@ Ask your agent: "Using Sequential, give me an overview of the last 7 days." The 
 - [Connect your agent](https://www.usesequential.com/features/connect-your-agent)
 - [Connect Claude Code](https://www.usesequential.com/docs/connect-claude-code)
 - [Connect claude.ai](https://www.usesequential.com/docs/connect-claude-ai)
+- [Connect ChatGPT](https://www.usesequential.com/docs/connect-chatgpt)
 - [Agent tools](https://www.usesequential.com/docs/agent-tools)
 
 Questions: hello@usesequential.com
